@@ -24,4 +24,4 @@ phases:
       # Archive workspace
       - zip -qr source.zip .
       # Upload workspace archive to S3
-      - aws s3 cp source.zip s3://${SOURCE_OUTPUT_BUCKET}/${APP_NAME}/${APP_NAME}.zip --metadata CommitID="${CODEBUILD_RESOLVED_SOURCE_VERSION}",BranchName="${CODEBUILD_SOURCE_VERSION}",RepoURL="${CODEBUILD_SOURCE_REPO_URL}"
+      - aws s3 cp source.zip s3://${SOURCE_OUTPUT_BUCKET}/${APP_NAME}.zip --metadata CommitID="${CODEBUILD_RESOLVED_SOURCE_VERSION}",BranchName="${CODEBUILD_SOURCE_VERSION}",RepoURL="${CODEBUILD_SOURCE_REPO_URL}"
