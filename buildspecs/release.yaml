@@ -7,7 +7,7 @@ env:
     BUILD_CONFIGURATION: "production"
 
     # AWS-specific variables:
-    S3_BUCKET: ""
+    S3_BUCKET: "test-client-shop-andres-ruge"
     CLOUDFRONT_DISTRIBUTION_ID: ""
 
 phases:
@@ -37,7 +37,7 @@ phases:
       - echo Application deployment is started on `date`
 
       # enable CloudFront cli:
-      - aws configure set preview.cloudfront true
+      # - aws configure set preview.cloudfront true
 
       # Invalidate CloudFront cache
 #      - aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/index.html"
@@ -55,7 +55,7 @@ phases:
       - aws s3 cp dist/app s3://${S3_BUCKET} --recursive
 
       # Create CloudFront invalidation (which actually clears cache):
-      - aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
+      # - aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"
 
       - echo Application deployment is successfully completed on `date`
 
